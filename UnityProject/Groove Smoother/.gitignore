@@ -111,3 +111,6 @@ InitTestScene*.unity*
 # Build Outputs
 /*_BackUpThisFolder_ButDontShipItWithYourGame/
 /*.apk
+
+# Build folder
+/[Bb]uilds/
