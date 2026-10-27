@@ -63,6 +63,7 @@ extern void AudioClipPlayable_GetHandle_mEA1D664328FF9B08E4F7D5EBCD4B51A754D97C4
 extern void AudioClipPlayable_Equals_m9C1C75ACBB74FE06AD02BE4643F6EB39413EFF83 (void);
 extern void AudioMixerPlayable_GetHandle_m6C182D9794E901D123223BB57738A302BEAB41FD (void);
 extern void AudioMixerPlayable_Equals_mDFB945EB48199A338BAD00D40FB8EEC34CF64D57 (void);
+extern void AudioPlayableOutput_GetHandle_m55153D572F8FB9BCFF3843402A20280273B934AE (void);
 extern void AudioFormat_get_audioConfiguration_m769CBA67D62C1D12FBE6C55DC2429D62BA135D43 (void);
 extern void ControlContext_get_Header_m48ED40585DBA374B2750157BEFD1A0DC92B654E2 (void);
 extern void ControlContext__ctor_mFFC3A14E72F61DACB51F4F771FAE8416702023B6 (void);
@@ -97,7 +98,7 @@ extern void Handle_Equals_mDE217E745B1016A74BCE82848675ED913B391B8F (void);
 extern void Handle_GetHashCode_m8DD5E2EE5197C1FF37CD2CF3B4FD892A9E299DFE (void);
 extern void Handle_CheckValidOrThrow_mA6C3BAA711CDA462A6A2653A1A2D04CE2AECD3C3 (void);
 extern void Handle_get_ValidAndNotDisposed_m1097F1E099632EDF74478AD5B74978BD3FAEF145 (void);
-static Il2CppMethodPointer s_methodPointers[94] = 
+static Il2CppMethodPointer s_methodPointers[95] = 
 {
 	EmbeddedAttribute__ctor_m435F561C10EB1CFADACDF6202954D45787911FDE,
 	RefSafetyRulesAttribute__ctor_m35BCB21D10EE61C71ED4F6CA05DE681A759393A6,
@@ -155,6 +156,7 @@ static Il2CppMethodPointer s_methodPointers[94] =
 	AudioClipPlayable_Equals_m9C1C75ACBB74FE06AD02BE4643F6EB39413EFF83,
 	AudioMixerPlayable_GetHandle_m6C182D9794E901D123223BB57738A302BEAB41FD,
 	AudioMixerPlayable_Equals_mDFB945EB48199A338BAD00D40FB8EEC34CF64D57,
+	AudioPlayableOutput_GetHandle_m55153D572F8FB9BCFF3843402A20280273B934AE,
 	AudioFormat_get_audioConfiguration_m769CBA67D62C1D12FBE6C55DC2429D62BA135D43,
 	ControlContext_get_Header_m48ED40585DBA374B2750157BEFD1A0DC92B654E2,
 	ControlContext__ctor_mFFC3A14E72F61DACB51F4F771FAE8416702023B6,
@@ -198,6 +200,7 @@ extern void AudioClipPlayable_GetHandle_mEA1D664328FF9B08E4F7D5EBCD4B51A754D97C4
 extern void AudioClipPlayable_Equals_m9C1C75ACBB74FE06AD02BE4643F6EB39413EFF83_AdjustorThunk (void);
 extern void AudioMixerPlayable_GetHandle_m6C182D9794E901D123223BB57738A302BEAB41FD_AdjustorThunk (void);
 extern void AudioMixerPlayable_Equals_mDFB945EB48199A338BAD00D40FB8EEC34CF64D57_AdjustorThunk (void);
+extern void AudioPlayableOutput_GetHandle_m55153D572F8FB9BCFF3843402A20280273B934AE_AdjustorThunk (void);
 extern void GeneratorInstance_Equals_m1FEFD7862F181D69396710522A061AA1A5189FE1_AdjustorThunk (void);
 extern void GeneratorInstance_Equals_m7412F772B53B5052FF5070FB2BB2099A93270206_AdjustorThunk (void);
 extern void GeneratorInstance_GetHashCode_mBF9BB29BE3D212AAAEF53A02346FED4B0435C7D2_AdjustorThunk (void);
@@ -210,32 +213,33 @@ extern void ProcessorInstance_GetHashCode_m607D39F5BA947B94238348CF61431A9D8049F
 extern void Handle_Equals_m5D8356E5FCA91FFFEACC910C738C37690EBA2E64_AdjustorThunk (void);
 extern void Handle_Equals_mDE217E745B1016A74BCE82848675ED913B391B8F_AdjustorThunk (void);
 extern void Handle_GetHashCode_m8DD5E2EE5197C1FF37CD2CF3B4FD892A9E299DFE_AdjustorThunk (void);
-static Il2CppTokenAdjustorThunkPair s_adjustorThunks[16] = 
+static Il2CppTokenAdjustorThunkPair s_adjustorThunks[17] = 
 {
 	{ 0x06000035, AudioClipPlayable_GetHandle_mEA1D664328FF9B08E4F7D5EBCD4B51A754D97C44_AdjustorThunk },
 	{ 0x06000036, AudioClipPlayable_Equals_m9C1C75ACBB74FE06AD02BE4643F6EB39413EFF83_AdjustorThunk },
 	{ 0x06000037, AudioMixerPlayable_GetHandle_m6C182D9794E901D123223BB57738A302BEAB41FD_AdjustorThunk },
 	{ 0x06000038, AudioMixerPlayable_Equals_mDFB945EB48199A338BAD00D40FB8EEC34CF64D57_AdjustorThunk },
-	{ 0x06000041, GeneratorInstance_Equals_m1FEFD7862F181D69396710522A061AA1A5189FE1_AdjustorThunk },
-	{ 0x06000042, GeneratorInstance_Equals_m7412F772B53B5052FF5070FB2BB2099A93270206_AdjustorThunk },
-	{ 0x06000043, GeneratorInstance_GetHashCode_mBF9BB29BE3D212AAAEF53A02346FED4B0435C7D2_AdjustorThunk },
-	{ 0x0600004E, DualThreadHandle_Equals_mC67DABC578FAA83CDA107C7A5EC172FB7068097A_AdjustorThunk },
-	{ 0x0600004F, DualThreadHandle_Equals_m92C4D9D47177CC9ED6D935717BA50C9AD6DF3CB8_AdjustorThunk },
-	{ 0x06000050, DualThreadHandle_GetHashCode_mBAD40BB6FDB9A3F3F7D5B825DE2D7791400EABF1_AdjustorThunk },
-	{ 0x06000052, ProcessorInstance_Equals_m4873E7D141484FCADC7F0F9C64542D57E0D02398_AdjustorThunk },
-	{ 0x06000053, ProcessorInstance_Equals_mFE0F0DA5B311AD6D34EABD73F61C4AE3014084ED_AdjustorThunk },
-	{ 0x06000054, ProcessorInstance_GetHashCode_m607D39F5BA947B94238348CF61431A9D8049F9B0_AdjustorThunk },
-	{ 0x0600005A, Handle_Equals_m5D8356E5FCA91FFFEACC910C738C37690EBA2E64_AdjustorThunk },
-	{ 0x0600005B, Handle_Equals_mDE217E745B1016A74BCE82848675ED913B391B8F_AdjustorThunk },
-	{ 0x0600005C, Handle_GetHashCode_m8DD5E2EE5197C1FF37CD2CF3B4FD892A9E299DFE_AdjustorThunk },
+	{ 0x06000039, AudioPlayableOutput_GetHandle_m55153D572F8FB9BCFF3843402A20280273B934AE_AdjustorThunk },
+	{ 0x06000042, GeneratorInstance_Equals_m1FEFD7862F181D69396710522A061AA1A5189FE1_AdjustorThunk },
+	{ 0x06000043, GeneratorInstance_Equals_m7412F772B53B5052FF5070FB2BB2099A93270206_AdjustorThunk },
+	{ 0x06000044, GeneratorInstance_GetHashCode_mBF9BB29BE3D212AAAEF53A02346FED4B0435C7D2_AdjustorThunk },
+	{ 0x0600004F, DualThreadHandle_Equals_mC67DABC578FAA83CDA107C7A5EC172FB7068097A_AdjustorThunk },
+	{ 0x06000050, DualThreadHandle_Equals_m92C4D9D47177CC9ED6D935717BA50C9AD6DF3CB8_AdjustorThunk },
+	{ 0x06000051, DualThreadHandle_GetHashCode_mBAD40BB6FDB9A3F3F7D5B825DE2D7791400EABF1_AdjustorThunk },
+	{ 0x06000053, ProcessorInstance_Equals_m4873E7D141484FCADC7F0F9C64542D57E0D02398_AdjustorThunk },
+	{ 0x06000054, ProcessorInstance_Equals_mFE0F0DA5B311AD6D34EABD73F61C4AE3014084ED_AdjustorThunk },
+	{ 0x06000055, ProcessorInstance_GetHashCode_m607D39F5BA947B94238348CF61431A9D8049F9B0_AdjustorThunk },
+	{ 0x0600005B, Handle_Equals_m5D8356E5FCA91FFFEACC910C738C37690EBA2E64_AdjustorThunk },
+	{ 0x0600005C, Handle_Equals_mDE217E745B1016A74BCE82848675ED913B391B8F_AdjustorThunk },
+	{ 0x0600005D, Handle_GetHashCode_m8DD5E2EE5197C1FF37CD2CF3B4FD892A9E299DFE_AdjustorThunk },
 };
 IL2CPP_EXTERN_C const Il2CppCodeGenModule g_UnityEngine_AudioModule_CodeGenModule;
 const Il2CppCodeGenModule g_UnityEngine_AudioModule_CodeGenModule = 
 {
 	"UnityEngine.AudioModule.dll",
-	94,
+	95,
 	s_methodPointers,
-	16,
+	17,
 	s_adjustorThunks,
 	0,
 	NULL,
