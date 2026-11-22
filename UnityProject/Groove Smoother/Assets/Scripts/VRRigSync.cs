@@ -29,7 +29,7 @@ public class VRRigSync : MonoBehaviour
         transform.position = bodyPosition;
 
         // 体の向き（Y軸回転）をヘッドセットの向きに滑らかに追従させる
-        float yaw = head.vrTarget.eulerAngles.y + 180f;
+        float yaw = head.vrTarget.eulerAngles.y;
         transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, yaw, 0), Time.deltaTime * 5f);
 
         // 2. その後、各部位のIKを同期
