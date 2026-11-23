@@ -5,17 +5,38 @@ public class VRRigSync : MonoBehaviour
     [System.Serializable]
     public class VRMap
     {
-        public Transform vrTarget; 
-        public Transform ikTarget; 
+        public Transform vrTarget;
+        public Transform ikTarget;
         public Vector3 positionOffset;
         public Vector3 rotationOffset;
 
-        public void Sync()
+        [Header("モーション補正設定")]
+        public bool useEnhancer = false;
+        public MotionEnhancer enhancer = new MotionEnhancer();
+
+        public void Sync(bool globalEnable, float dt)
         {
-            ikTarget.position = vrTarget.TransformPoint(positionOffset);
+            if (vrTarget == null || ikTarget == null) return;
+
+            Vector3 targetPos = vrTarget.TransformPoint(positionOffset);
+
+            // 補正が有効な場合のみ信号処理パイプラインを通す
+            if (globalEnable && useEnhancer)
+            {
+                targetPos = enhancer.Process(targetPos, dt);
+            }
+            else
+            {
+                enhancer.Reset();
+            }
+
+            ikTarget.position = targetPos;
             ikTarget.rotation = vrTarget.rotation * Quaternion.Euler(rotationOffset);
         }
     }
+
+    [Header("全体の補正ON/OFF（A/Bテスト用）")]
+    public bool enableCorrection = true;
 
     public VRMap head;
     public VRMap leftHand;
@@ -23,18 +44,21 @@ public class VRRigSync : MonoBehaviour
 
     void LateUpdate()
     {
-        // 1. 体全体のルート（足元）を、ヘッドセットのX・Z座標（水平位置）に追従させる
-        // 高さは床(アバターの現在のY)を維持
-        Vector3 bodyPosition = new Vector3(head.vrTarget.position.x, transform.position.y, head.vrTarget.position.z);
-        transform.position = bodyPosition;
+        float dt = Time.deltaTime;
 
-        // 体の向き（Y軸回転）をヘッドセットの向きに滑らかに追従させる
-        float yaw = head.vrTarget.eulerAngles.y;
-        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, yaw, 0), Time.deltaTime * 5f);
+        // 1. 体全体のルート（足元）をヘッドセットの水平位置に追従
+        if (head.vrTarget != null)
+        {
+            Vector3 bodyPosition = new Vector3(head.vrTarget.position.x, transform.position.y, head.vrTarget.position.z);
+            transform.position = bodyPosition;
 
-        // 2. その後、各部位のIKを同期
-        head.Sync();
-        leftHand.Sync();
-        rightHand.Sync();
+            float yaw = head.vrTarget.eulerAngles.y;
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, yaw, 0), dt * 5f);
+        }
+
+        // 2. 各部位のIKを同期（手のみ補正を適用するのがおすすめ）
+        head.Sync(enableCorrection, dt);
+        leftHand.Sync(enableCorrection, dt);
+        rightHand.Sync(enableCorrection, dt);
     }
 }
